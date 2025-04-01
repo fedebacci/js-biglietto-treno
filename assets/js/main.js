@@ -26,8 +26,8 @@ if (isNaN(userTripLength) || isNaN(userAge)) {
         outputMessage = `${outputMessage} \n~ L'ETÁ DEVE ESSERE ESPRESSA SOTTO FORMA DI NUMERO" `
     }
 } else {
-    isMinor = userAge < 18;
-    isOver = userAge > 65;
+    let isMinor = userAge < 18;
+    let isOver = userAge > 65;
     console.log("isMinor", isMinor);
     console.log("isOver", isOver);
 
@@ -49,5 +49,5 @@ if (isNaN(userTripLength) || isNaN(userAge)) {
     outputMessage = `${outputMessage} Il costo del tuo biglietto è di: € ${outputPrice.toFixed(2)}`;
 }
 
-// @ COMUNICAZIONE DEL PREZZO ALL'UTENTE
+// @ COMUNICAZIONE DEL MESSAGGIO FINALE ALL'UTENTE
 alert(outputMessage);
