@@ -4,25 +4,26 @@ const minorsDiscount = 20;
 const overDiscount = 40;
 
 // @ INFORMAZIONI RICAVATE DALL'UTENTE
+const userName = prompt("Quale è il tuo nome?");
 const userTripLength = parseInt(prompt("Di quanti chilometri sarà il viaggio?"));
 const userAge = parseInt(prompt("Quanti anni hai?"));
 console.log("userTripLength", userTripLength);
 console.log("userAge", userAge);
 
 // @ PREPARAZIONE INFORMAZIONI NECESSARIE PER IL CALCOLO
-let outputMessage;
+let outputMessage = `Ciao ${userName}!`;
 let outputPrice = ticketPriceForKM * userTripLength;
 console.log("outputPrice", outputPrice);
 
 // @ SVOLGIMENTO DEL CALCOLO
 if (isNaN(userTripLength) || isNaN(userAge)) {
-    outputMessage = "C'è stato un errore, leggi le istruzioni sotto riportate e riprova.";
+    outputMessage = `${outputMessage} C'è stato un errore, leggi le istruzioni sotto riportate e ricarica la pagina per riprovare.`;
 
     if (isNaN(userTripLength)) {
-        outputMessage = `${outputMessage} \n(I chilometri devono essere espressi sotto forma di numero)`
+        outputMessage = `${outputMessage} \n~ I CHILOMETRI DEVONO ESSERE ESPRESSI SOTTO FORMA DI NUMERO!`
     }
     if (isNaN(userAge)) {
-        outputMessage = `${outputMessage} \n(L'età deve essere espressa sotto forma di numero)`
+        outputMessage = `${outputMessage} \n~ L'ETÁ DEVE ESSERE ESPRESSA SOTTO FORMA DI NUMERO" `
     }
 } else {
     isMinor = userAge < 18;
@@ -45,7 +46,7 @@ if (isNaN(userTripLength) || isNaN(userAge)) {
         console.log("Prezzo con sconto applicato:", outputPrice)
     }
 
-    outputMessage = `Il costo del biglietto è di: € ${outputPrice.toFixed(2)}`;
+    outputMessage = `${outputMessage} Il costo del tuo biglietto è di: € ${outputPrice.toFixed(2)}`;
 }
 
 // @ COMUNICAZIONE DEL PREZZO ALL'UTENTE
